@@ -6,5 +6,6 @@
 </head>
 <body>
 Welcome ${name}! You are logged in.
+<p>${todos}</p>
 </body>
 </html>

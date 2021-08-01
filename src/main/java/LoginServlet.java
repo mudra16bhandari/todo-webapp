@@ -8,7 +8,8 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet{
 
-    private UserValidationService service = new UserValidationService();
+    private UserValidationService userValidationService = new UserValidationService();
+    private TodoService todoService = new TodoService();
 
     @Override
     protected void doGet(HttpServletRequest request,
@@ -21,10 +22,10 @@ public class LoginServlet extends HttpServlet{
         String name = request.getParameter("name");
         String password = request.getParameter("password");
 
-        boolean isUserValid = service.isUserValid(name,password);
+        boolean isUserValid = userValidationService.isUserValid(name,password);
         if(isUserValid) {
             request.setAttribute("name", name);
-            request.setAttribute("password", password);
+            request.setAttribute("todos",todoService.retrieveTodos());
             request.getRequestDispatcher("WEB-INF/views/welcome.jsp").forward(request, response);
         }
         else {
