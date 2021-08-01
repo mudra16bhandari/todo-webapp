@@ -1,7 +1,9 @@
 login\LoginServlet.class
+filter\LoginRequiredFilter.class
 todo\ListTodoServlet.class
 login\LoginService.class
 todo\DeleteTodoServlet.class
 todo\Todo.class
 todo\TodoService.class
+logout\LogoutServlet.class
 todo\AddTodoServlet.class
