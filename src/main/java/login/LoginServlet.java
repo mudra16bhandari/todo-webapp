@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet{
         boolean isUserValid = loginService.isUserValid(name,password);
         if(isUserValid) {
             request.getSession().setAttribute("name",name);
-            response.sendRedirect("/todo.do");
+            response.sendRedirect("/list-todo.do");
             }
         else {
             request.setAttribute("errorMessage","Invalid Credentials");

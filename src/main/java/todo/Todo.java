@@ -33,6 +33,6 @@ public class Todo {
 
     @Override
     public String toString() {
-        return String.format("todo.Todo [name=%s]", name);
+        return String.format("Todo [name=%s]", name);
     }
 }

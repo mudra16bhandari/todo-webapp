@@ -25,7 +25,7 @@
 
     <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-        <li><a href="/todo.do">Todos</a></li>
+        <li><a href="/list-todo.do">Todos</a></li>
         <li><a href="http://www.in28minutes.com">In28Minutes</a></li>
     </ul>
 
@@ -48,7 +48,7 @@
     <p>
         <font color="red">${errorMessage}</font>
     </p>
-    <form action="/todo.do" method="POST">
+    <form action="/add-todo.do" method="POST">
         New Todo :
         <input type="text" name="todo"/> <input type="submit" value="Add"/>
     </form>

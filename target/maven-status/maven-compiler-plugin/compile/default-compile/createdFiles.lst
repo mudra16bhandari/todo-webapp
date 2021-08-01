@@ -1,6 +1,7 @@
+login\LoginServlet.class
+todo\ListTodoServlet.class
+login\LoginService.class
 todo\DeleteTodoServlet.class
 todo\Todo.class
-login\LoginServlet.class
 todo\TodoService.class
-login\LoginService.class
-todo\TodoServlet.class
+todo\AddTodoServlet.class
