@@ -1,3 +1,6 @@
+package login;
+
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,8 +11,7 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet{
 
-    private UserValidationService userValidationService = new UserValidationService();
-    private TodoService todoService = new TodoService();
+    private final LoginService loginService = new LoginService();
 
     @Override
     protected void doGet(HttpServletRequest request,
@@ -22,12 +24,11 @@ public class LoginServlet extends HttpServlet{
         String name = request.getParameter("name");
         String password = request.getParameter("password");
 
-        boolean isUserValid = userValidationService.isUserValid(name,password);
+        boolean isUserValid = loginService.isUserValid(name,password);
         if(isUserValid) {
-            request.setAttribute("name", name);
-            request.setAttribute("todos",todoService.retrieveTodos());
-            request.getRequestDispatcher("WEB-INF/views/welcome.jsp").forward(request, response);
-        }
+            request.getSession().setAttribute("name",name);
+            response.sendRedirect("/todo.do");
+            }
         else {
             request.setAttribute("errorMessage","Invalid Credentials");
             request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
